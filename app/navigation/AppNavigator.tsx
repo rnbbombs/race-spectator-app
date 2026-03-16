@@ -11,7 +11,7 @@ import { GroupManagementScreen } from '../screens/GroupManagementScreen';
 import { ChatScreen } from '../screens/ChatScreen';
 import { MapNavigationScreen } from '../screens/MapNavigationScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
-import { Text } from 'react-native';
+import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -65,11 +65,30 @@ const MainTabs = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F8F8F8',
+  },
+  loadingText: {
+    marginTop: 12,
+    fontSize: 16,
+    color: '#666',
+  },
+});
+
 export const AppNavigator = () => {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
-    return null; // Or a loading screen
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#FF6B35" />
+        <Text style={styles.loadingText}>Loading...</Text>
+      </View>
+    );
   }
 
   return (
