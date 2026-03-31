@@ -29,19 +29,25 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-6">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Gradient background accents */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/5 blur-3xl -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-accent/5 blur-3xl translate-y-1/3 translate-x-1/3 pointer-events-none" />
+      
+      <div className="w-full max-w-md space-y-6 relative z-10">
         {/* Logo/Brand */}
         <div className="text-center space-y-2">
           <div className="flex justify-center mb-4">
-            <CheerLoopLogo size={80} />
+            <div className="p-3 rounded-2xl bg-card shadow-glow">
+              <CheerLoopLogo size={72} />
+            </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground">CheerLoop</h1>
           <p className="text-muted-foreground">Support your runners together</p>
         </div>
 
         {/* Login Form */}
-        <Card className="p-6 bg-card">
+        <Card className="p-6 bg-card/80 backdrop-blur-sm border border-border/50 shadow-lg">
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>

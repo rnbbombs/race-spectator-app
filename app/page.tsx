@@ -61,11 +61,16 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-2xl mx-auto p-4 space-y-6">
+    <div className="min-h-screen bg-background relative">
+      {/* Subtle gradient accent at top */}
+      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-primary/3 to-transparent pointer-events-none" />
+      
+      <div className="max-w-2xl mx-auto p-4 space-y-6 relative z-10">
         {/* Header */}
         <div className="pt-4 flex items-center gap-4">
-          <CheerLoopLogo size={48} />
+          <div className="p-2 rounded-xl bg-card shadow-sm">
+            <CheerLoopLogo size={44} />
+          </div>
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-1">Welcome back, Uri</h1>
             <p className="text-muted-foreground">Ready to support your runners?</p>
@@ -94,7 +99,7 @@ export default function HomePage() {
               {userGroups.map((group) => (
                 <Card
                   key={group.id}
-                  className="p-4 bg-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="p-4 gradient-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:shadow-glow transition-all"
                   onClick={() => router.push(`/group/${group.id}`)}
                 >
                   <div className="flex items-start justify-between mb-3">

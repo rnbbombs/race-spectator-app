@@ -232,8 +232,13 @@ export default function OnboardingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4 safe-area-header">
-      <div className="w-full max-w-md" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+    <div className="min-h-screen bg-background flex items-center justify-center p-4 safe-area-header relative overflow-hidden">
+      {/* Subtle gradient background overlay */}
+      <div className="absolute inset-0 gradient-subtle pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-accent/5 blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      
+      <div className="w-full max-w-md relative z-10" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
         {steps[step]}
 
         {/* Progress Indicator */}
@@ -241,7 +246,7 @@ export default function OnboardingPage() {
           {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className={`h-2 rounded-full transition-all ${i === step ? "w-8 bg-primary" : "w-2 bg-muted"}`}
+              className={`h-2 rounded-full transition-all ${i === step ? "w-8 gradient-primary" : "w-2 bg-muted"}`}
             />
           ))}
         </div>
