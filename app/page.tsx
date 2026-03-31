@@ -99,7 +99,7 @@ export default function HomePage() {
               {userGroups.map((group) => (
                 <Card
                   key={group.id}
-                  className="p-4 bg-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:bg-primary/90 hover:shadow-lg transition-all"
+                  className="p-4 bg-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:brightness-110 hover:shadow-lg transition-all"
                   onClick={() => router.push(`/group/${group.id}`)}
                 >
                   <div className="flex items-start justify-between mb-3">

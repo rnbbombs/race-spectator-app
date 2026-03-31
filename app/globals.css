@@ -87,9 +87,9 @@
 }
 
 @theme inline {
-  /* Updated font-sans to use Inter instead of Space Grotesk */
-  --font-sans: "Inter", "Inter Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: var(--font-inter), "Inter", "Inter Fallback";
+  --font-heading: var(--font-heading), "Space Grotesk", "Space Grotesk Fallback";
+  --font-mono: var(--font-mono), "Geist Mono", "Geist Mono Fallback";
 
   /* Tightened typography scale for more compact text while maintaining accessibility */
   --font-size-xs: 0.8125rem; /* 13px - for labels and badges */
@@ -145,6 +145,11 @@
   body {
     @apply bg-background text-foreground;
     font-size: 0.9375rem;
+  }
+  
+  /* Use Space Grotesk for headings */
+  h1, h2, .font-heading {
+    font-family: var(--font-heading), "Space Grotesk", sans-serif;
   }
 
   /* Safe area class for sticky headers on iOS */
