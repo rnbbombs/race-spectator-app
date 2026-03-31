@@ -85,9 +85,9 @@ export default function HomePage() {
               </h2>
               {userGroups.length > 2 && (
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
-                  className="text-foreground font-medium hover:bg-muted"
+                  className="font-semibold"
                   onClick={() => router.push("/groups")}
                 >
                   View All
