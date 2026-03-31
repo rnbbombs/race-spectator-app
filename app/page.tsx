@@ -103,17 +103,17 @@ export default function HomePage() {
                   className="p-4 bg-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:brightness-110 hover:shadow-lg transition-all"
                   onClick={() => router.push(`/group/${group.id}`)}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <Users className="w-5 h-5" />
-                        <h3 className="font-semibold text-lg">{group.name}</h3>
-                      </div>
-                      <p className="text-sm opacity-90">
-                        {group.memberCount} members
-                      </p>
-                      <p className="text-xs opacity-75 mt-1">{group.raceDate}</p>
+                  <div className="mb-3">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Users className="w-5 h-5" />
+                      <h3 className="font-semibold text-lg">{group.name}</h3>
                     </div>
+                    <p className="text-sm opacity-90">
+                      {group.memberCount} members
+                    </p>
+                    <p className="text-xs opacity-75 mt-1">{group.raceDate}</p>
+                  </div>
+                  <div className="mb-3">
                     <Badge className="bg-white/20 text-primary-foreground border-0 font-medium">
                       {group.raceName.includes("Marathon") ? "Marathon" : group.raceName.includes("Half") ? "Half" : "Race"}
                     </Badge>
