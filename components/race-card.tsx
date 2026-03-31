@@ -21,11 +21,15 @@ export function RaceCard({ name, distance, location, date, startTime, onClick }:
         <Badge className="bg-primary text-primary-foreground font-medium">{distance}</Badge>
       </div>
 
+      {/* Location chip */}
+      <div className="mb-3">
+        <Badge variant="secondary" className="font-normal">
+          <MapPin className="w-3 h-3 mr-1" />
+          {location}
+        </Badge>
+      </div>
+
       <div className="space-y-2">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <MapPin className="w-4 h-4" />
-          <span>{location}</span>
-        </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Calendar className="w-4 h-4" />
           <span>{date}</span>
