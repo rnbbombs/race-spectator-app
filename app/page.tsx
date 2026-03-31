@@ -87,7 +87,7 @@ export default function HomePage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-primary hover:text-primary/80"
+                  className="text-foreground font-medium hover:bg-muted"
                   onClick={() => router.push("/groups")}
                 >
                   View All
@@ -99,7 +99,7 @@ export default function HomePage() {
               {userGroups.map((group) => (
                 <Card
                   key={group.id}
-                  className="p-4 gradient-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:shadow-glow transition-all"
+                  className="p-4 bg-primary text-primary-foreground min-w-[280px] flex-shrink-0 cursor-pointer hover:bg-primary/90 hover:shadow-lg transition-all"
                   onClick={() => router.push(`/group/${group.id}`)}
                 >
                   <div className="flex items-start justify-between mb-3">
