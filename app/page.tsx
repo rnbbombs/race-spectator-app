@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { RaceCard } from "@/components/race-card"
 import { Users, Search, Plus, ChevronRight } from "lucide-react"
 import { CheerLoopLogo } from "@/components/cheerloop-logo"
@@ -109,10 +110,13 @@ export default function HomePage() {
                         <h3 className="font-semibold text-lg">{group.name}</h3>
                       </div>
                       <p className="text-sm opacity-90">
-                        {group.memberCount} members • {group.raceName}
+                        {group.memberCount} members
                       </p>
                       <p className="text-xs opacity-75 mt-1">{group.raceDate}</p>
                     </div>
+                    <Badge className="bg-white/20 text-primary-foreground border-0 font-medium">
+                      {group.raceName.includes("Marathon") ? "Marathon" : group.raceName.includes("Half") ? "Half" : "Race"}
+                    </Badge>
                   </div>
                   <div className="flex gap-2">
                     <Button
